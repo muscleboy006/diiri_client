@@ -1,0 +1,48 @@
+.city-input {
+  position: relative;
+  width: 100%;
+}
+
+.city-input input {
+  width: 100%;
+}
+
+.city-list {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 260px;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  overflow-y: auto;
+  background: var(--card, #fff);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(30, 60, 140, 0.16);
+  animation: cityIn 0.12s ease-out both;
+}
+
+.city-list li {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--text, #121a2b);
+  cursor: pointer;
+}
+
+.city-list li:active,
+.city-list li.active {
+  background: #eef2ff;
+  color: var(--accent, #2f6bff);
+}
+
+@keyframes cityIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .city-list { animation: none; }
+}

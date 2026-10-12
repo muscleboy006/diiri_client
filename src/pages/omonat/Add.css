@@ -1,0 +1,168 @@
+.add { display: flex; flex-direction: column; gap: 14px; }
+.add-head h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; }
+.add-head p { margin-top: 4px; color: var(--hint); font-size: 14px; }
+
+.block {
+  background: var(--card); border-radius: var(--radius);
+  padding: 16px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.block-title {
+  display: flex; justify-content: space-between;
+  font-weight: 700; font-size: 15px;
+}
+.block-title span { color: var(--hint); font-weight: 600; }
+
+.add label {
+  display: flex; flex-direction: column; gap: 6px;
+  font-size: 13px; color: var(--hint); font-weight: 600; min-width: 0;
+}
+.add input, .add textarea, .add select {
+  width: 100%; font: inherit; font-size: 16px; color: var(--text);
+  padding: 13px 14px; border-radius: 14px;
+  border: 2px solid transparent; background: #f1f4fb; outline: none;
+  caret-color: var(--accent);           /* видимый курсор */
+  -webkit-appearance: none; appearance: none;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+.add input:focus, .add textarea:focus, .add select:focus {
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(47, 107, 255, 0.15);
+}
+.add label:focus-within { color: var(--accent); }
+
+.add select {
+  padding-right: 38px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%237b869c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  text-overflow: ellipsis;
+}
+.add select.placeholder { color: #9aa5bd; }
+
+.route-row { display: flex; align-items: flex-end; gap: 8px; }
+.route-row label { flex: 1; }
+.arrow { padding-bottom: 12px; font-size: 20px; color: var(--accent); font-weight: 700; }
+
+.suffix { position: relative; }
+.suffix input { padding-right: 46px; }
+.suffix i {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  font-style: normal; font-size: 14px; color: var(--hint); font-weight: 600;
+}
+
+/* Фото */
+.photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.photo {
+  position: relative; aspect-ratio: 1; border-radius: 16px; overflow: hidden;
+  background: #f1f4fb;
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-add {
+  border: 2px dashed #c9d5f5; background: #f7f9ff; color: var(--accent);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; font-size: 12px; font-weight: 700; cursor: pointer;
+}
+.cover {
+  position: absolute; left: 6px; bottom: 6px;
+  font-size: 10px; font-weight: 700; color: #fff;
+  background: rgba(18, 26, 43, 0.65); padding: 3px 8px; border-radius: 999px;
+}
+.photo-x {
+  position: absolute; top: 6px; right: 6px; width: 24px; height: 24px;
+  border: none; border-radius: 50%; cursor: pointer;
+  background: rgba(18, 26, 43, 0.65); color: #fff; font-size: 16px; line-height: 1;
+}
+
+.submit {
+  padding: 16px; border: none; border-radius: 18px;
+  font-size: 16px; font-weight: 700; color: #fff; cursor: pointer;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 8px 20px rgba(47, 107, 255, 0.3);
+}
+.submit:disabled { opacity: 0.6; }
+.add .error {
+  background: #fff0f0; border-radius: 14px; padding: 12px 14px; margin: 0;
+}
+
+/* Карточка Omonat */
+/* Карточка Omonat (компактная) */
+.omonat {
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.omonat.closed { opacity: 0.65; }
+
+.thumb {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #f1f4fb;
+}
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb-empty {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px;
+}
+.count {
+  position: absolute; left: 6px; bottom: 6px;
+  font-size: 10px; font-weight: 700; color: #fff;
+  background: rgba(18, 26, 43, 0.65);
+  padding: 3px 8px; border-radius: 999px;
+}
+.tag {
+  position: absolute; left: 6px; top: 6px;
+  font-size: 10px; font-weight: 700; color: #fff;
+  background: #e5383b; padding: 3px 8px; border-radius: 999px;
+}
+
+.omonat-body {
+  padding: 10px 12px 12px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.omonat h3 {
+  margin: 0; font-size: 14px; font-weight: 600; line-height: 1.25;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden; min-height: 2.5em;
+}
+.price { font-size: 15px; font-weight: 800; color: var(--text); }
+.route {
+  font-size: 12px; font-weight: 600; color: var(--accent);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.date { font-size: 11px; color: var(--hint); }
+
+.actions { display: flex; gap: 6px; margin-top: 6px; }
+.actions button {
+  flex: 1; padding: 7px 4px; border-radius: 10px;
+  border: 1.5px solid #dfe5f3; background: #fff;
+  font-size: 12px; font-weight: 600; color: var(--text); cursor: pointer;
+}
+.actions .danger {
+  flex: 0 0 34px; color: #e5383b; border-color: #f6caca;
+}
+.gallery::-webkit-scrollbar { display: none; }
+.gallery img {
+  flex: 0 0 100%; height: 200px; object-fit: cover; scroll-snap-align: start;
+}
+
+.omonat-top { display: flex; justify-content: space-between; gap: 8px; }
+.omonat h3 { margin: 0; font-size: 16px; font-weight: 700; }
+.tag { font-size: 11px; padding: 3px 8px; border-radius: 999px; background: #eef1f8; color: var(--hint); height: fit-content; }
+.route { font-weight: 600; color: var(--accent); }
+.omonat-meta { display: flex; justify-content: space-between; font-size: 14px; color: var(--hint); }
+.price { color: var(--text); font-weight: 800; }
+.desc { font-size: 14px; line-height: 1.4; }
+.date { font-size: 12px; color: var(--hint); }
+.actions { display: flex; gap: 8px; margin-top: 4px; }
+.actions button {
+  flex: 1; padding: 9px; border-radius: 12px; border: 1.5px solid #dfe5f3;
+  background: #fff; font-weight: 600; cursor: pointer; color: var(--text);
+}
+.actions .danger { color: #e5383b; border-color: #f6caca; }

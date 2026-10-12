@@ -1,0 +1,155 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* .home-search {
+  display: flex;
+  gap: 8px;
+} */
+
+.home-search {
+  display: flex;
+  gap: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  /* фон нужен, чтобы карточки не просвечивали под поиском */
+  background: var(--bg);
+  /* растягиваем фон на всю ширину, компенсируя padding у body */
+  margin: 0 -16px;
+  padding: 8px 16px;
+}
+
+.search-field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  height: 44px;
+  border-radius: 12px;
+  background: #fff;
+  color: #8a94ad;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.search-field input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: #111;
+}
+
+.search-clear {
+  display: flex;
+  padding: 4px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(128, 128, 128, 0.2);
+  color: #555;
+  cursor: pointer;
+}
+
+.filter-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  background: #fff;
+  color: #6b7694;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+}
+
+.filter-btn.on {
+  background: linear-gradient(135deg, #2f6bff, #7a5cff);
+  color: #fff;
+}
+
+.filter-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: #e53935;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.filters-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #6b7694;
+}
+
+.filters select,
+.filters input {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #e1e6f3;
+  border-radius: 10px;
+  background: #f7f9ff;
+  font-size: 15px;
+  color: #111;
+}
+
+.filters-reset {
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: #eef2ff;
+  color: #2f6bff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.home-count {
+  font-size: 13px;
+  color: #8a94ad;
+}
+
+.link-btn {
+  border: none;
+  background: none;
+  color: #2f6bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ptr .spin { animation: ptrSpin 0.8s linear infinite; }
+@keyframes ptrSpin { to { transform: rotate(360deg); } }

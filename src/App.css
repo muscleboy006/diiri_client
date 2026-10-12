@@ -1,0 +1,100 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f7ff;
+  --card: #ffffff;
+  --text: #121a2b;
+  --hint: #7b869c;
+  --line: #eef1f8;
+  --accent: #2f6bff;
+  --accent-2: #7a5cff;
+  --radius: 20px;
+  --shadow: 0 4px 20px rgba(30, 60, 140, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  padding: 24px 16px;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none; /* без резинового эффекта */
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, p { margin: 0; }
+
+img {
+  background: var(--line); /* заглушка, пока картинка грузится */
+  max-width: 100%;
+}
+
+.card {
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* контент не подпрыгивает при загрузке фото */
+  object-fit: cover;
+}
+
+.page {
+  max-width: 420px;
+  margin: 0 auto;
+  padding-bottom: 90px; /* чтобы контент не прятался под баром */
+}
+
+/* ---------- Переходы ---------- */
+
+/* hidden-атрибут не должен перебиваться display из других стилей */
+[hidden] { display: none !important; }
+
+/* Вкладка: короткий fade при показе */
+.tab {
+  animation: tabIn 0.18s ease-out both;
+}
+
+/* Деталь объявления / чат: fade + лёгкий сдвиг */
+.view {
+  animation: viewIn 0.24s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes tabIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes viewIn {
+  from { opacity: 0; transform: translateX(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Отклик на нажатие ---------- */
+
+button,
+a {
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* уважаем настройку «уменьшить анимации» */
+@media (prefers-reduced-motion: reduce) {
+  .tab,
+  .view { animation: none; }
+  button, a { transition: none; }
+}
