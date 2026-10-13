@@ -235,7 +235,7 @@ export default function ChatRoom({ id, onBack }) {
           }}
           onKeyDown={onKeyDown}
           placeholder="Xabar"
-          maxLength={2000}
+          maxLength={1000}
         />
         <button
           className="room-send"

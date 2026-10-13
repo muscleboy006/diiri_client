@@ -17,7 +17,7 @@ import OmonatDetail from "./pages/omonat/OmonatDetail";
 function Tab({ active, children }) {
   return (
     <div className="tab" hidden={!active}>
-      {children}
+      {children} 
     </div>
   );
 }
