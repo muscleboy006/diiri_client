@@ -14,5 +14,19 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+    const tg = window.Telegram?.WebApp;
+
+    if (tg && tg.initData) {
+      // Открыто из Telegram
+      tg.ready();
+      tg.expand();
+      document.getElementById('app').style.display = 'block';
+    } else {
+      // Открыто в браузере: страница остается пустой
+      document.body.innerHTML = '';
+    }
+  </script>
   </body>
 </html>

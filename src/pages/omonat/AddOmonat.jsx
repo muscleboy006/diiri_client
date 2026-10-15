@@ -25,17 +25,29 @@ export default function AddOmonat({ onCreated }) {
   // для CityInput (получает готовую строку)
   const setValue = (k) => (value) => setForm((f) => ({ ...f, [k]: value }));
 
-  const pickPhotos = async (e) => {
-    const picked = Array.from(e.target.files).slice(0, MAX_PHOTOS - photos.length);
-    e.target.value = "";
-    const prepared = await Promise.all(
-      picked.map(async (f) => {
-        const file = await compressImage(f).catch(() => null);
-        return file && { file, preview: URL.createObjectURL(file) };
-      })
+const pickPhotos = async (e) => {
+  const picked = Array.from(e.target.files).slice(0, MAX_PHOTOS - photos.length);
+  e.target.value = "";
+  if (!picked.length) return;
+
+  const results = await Promise.allSettled(picked.map((f) => compressImage(f)));
+
+  const ok = results
+    .filter((r) => r.status === "fulfilled")
+    .map((r) => ({ file: r.value, preview: URL.createObjectURL(r.value) }));
+
+  const failed = results.length - ok.length;
+  if (failed) {
+    const reason = results.find((r) => r.status === "rejected")?.reason?.message;
+    setError(
+      `Qayta ishlab bolmadi ${failed} rasm${reason ? `: ${reason}` : ""}`
     );
-    setPhotos((prev) => [...prev, ...prepared.filter(Boolean)]);
-  };
+  } else {
+    setError(null);
+  }
+
+  setPhotos((prev) => [...prev, ...ok]);
+};
 
   const removePhoto = (i) => {
     URL.revokeObjectURL(photos[i].preview);

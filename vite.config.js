@@ -6,9 +6,13 @@ export default defineConfig({
   server: {
     port: 5173,
     allowedHosts: true, // разрешаем домен ngrok
-    proxy: { 
-      "/api": "http://localhost:3000", 
-      "/uploads": "http://localhost:3000", 
+    // proxy: { 
+    //   "/api": "http://localhost:3000", 
+    //   "/uploads": "http://localhost:3000", 
+    // },
+      proxy: { 
+      "/api": "http://75.119.138.244:3000", 
+      "/uploads": "http://75.119.138.244:3000", 
     },
   },
 });
