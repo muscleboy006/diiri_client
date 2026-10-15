@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { tg } from "../utils/telegram";
+import { API_URL } from "../utils/config";
 
 export function useUser() {
   const [user, setUser] = useState(null);
