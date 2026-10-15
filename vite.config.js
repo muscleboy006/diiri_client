@@ -6,10 +6,10 @@ export default defineConfig({
   server: {
     port: 5173,
     allowedHosts: true,
-    proxy: {
-      "/api": "https://diiri-cargo.duckdns.org",
-      "/uploads": "https://diiri-cargo.duckdns.org",
-    },
+    // proxy: {
+    //   "/api": "https://diiri-cargo.duckdns.org",
+    //   "/uploads": "https://diiri-cargo.duckdns.org",
+    // },
     // proxy: {
     //   "/api": "http://localhost:3000",
     //   "/uploads": "http://localhost:3000",

@@ -6,7 +6,7 @@ export function useUser() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/api/me", { headers: { Authorization: `tma ${tg?.initData ?? ""}` } })
+    fetch(`${API_URL}/me`, { headers: { Authorization: `tma ${tg?.initData ?? ""}` } })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
