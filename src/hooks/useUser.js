@@ -12,7 +12,7 @@ export function useUser() {
         return res.json();
       })
       .then(({ user }) => {
-        if (!user) throw new Error("Пользователь не найден в базе. Отправь боту /start.");
+        if (!user) throw new Error("Foydalanuvchi topilmadi. Botga /start yuboring.");
         setUser(user);
       })
       .catch((e) => setError(e.message));
