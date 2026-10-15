@@ -1,5 +1,6 @@
 import { Heart } from "lucide-react";
 import { formatDate } from "../utils/format";
+import { imgUrl } from "../utils/config";
 import "./OmonatCard.css";
 
 export default function OmonatCard({ item, onToggle, onRemove, onOpen, isFav, onToggleFav }) {
@@ -10,7 +11,8 @@ export default function OmonatCard({ item, onToggle, onRemove, onOpen, isFav, on
     <div className={`omonat ${closed ? "closed" : ""}`} onClick={() => onOpen?.(item)}>
       <div className="thumb">
         {cover ? (
-          <img src={cover} alt="" loading="lazy" />
+          // <img src={cover} alt="" loading="lazy" />
+          <img src={imgUrl(cover)} alt="" loading="lazy" />
         ) : (
           <div className="thumb-empty">📦</div>
         )}

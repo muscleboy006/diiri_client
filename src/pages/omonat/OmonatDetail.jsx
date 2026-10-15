@@ -3,6 +3,7 @@ import { ArrowLeft, MapPin, Calendar, MessageCircle } from "lucide-react";
 import { formatDate } from "../../utils/format";
 import { tg } from "../../utils/telegram";
 import { api } from "../../utils/api";
+import { imgUrl } from "../../utils/config";
 import "./OmonatDetail.css";
 
 export default function OmonatDetail({ item, onBack, onOpenChat }) {
@@ -28,7 +29,8 @@ export default function OmonatDetail({ item, onBack, onOpenChat }) {
 
       <div className="gallery">
         {images.length > 0 ? (
-          <img src={images[index]} alt="" />
+          // <img src={images[index]} alt="" />
+          <img src={imgUrl(images[index])} alt="" />
         ) : (
           <div className="gallery-empty">📦</div>
         )}
@@ -46,7 +48,8 @@ export default function OmonatDetail({ item, onBack, onOpenChat }) {
               className={`thumb-btn ${i === index ? "active" : ""}`}
               onClick={() => setIndex(i)}
             >
-              <img src={src} alt="" />
+              {/* <img src={src} alt="" /> */}
+              <img src={imgUrl(src)} alt="" />
             </button>
           ))}
         </div>
