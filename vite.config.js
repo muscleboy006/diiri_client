@@ -10,5 +10,9 @@ export default defineConfig({
       "/api": "https://diiri-cargo.duckdns.org",
       "/uploads": "https://diiri-cargo.duckdns.org",
     },
+    // proxy: {
+    //   "/api": "http://localhost:3000",
+    //   "/uploads": "http://localhost:3000",
+    // },
   },
 });
